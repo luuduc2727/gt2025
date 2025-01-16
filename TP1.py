@@ -1,18 +1,18 @@
 def path_exists(graph, start, end):
-    visited = set()
+    node_checked = set()
 
     # Depth-First Search
-    def dfs(node):
+    def Depth_First_Search(node):
         if node == end:
             return True
-        visited.add(node)
+        node_checked.add(node)
         for neighbor in graph.get(node, []):
-            if neighbor not in visited:
-                if dfs(neighbor):
+            if neighbor not in node_checked:
+                if Depth_First_Search(neighbor):
                     return True
         return False
 
-    return dfs(start)
+    return Depth_First_Search(start)
 
 
 def main():
